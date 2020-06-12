@@ -9,7 +9,6 @@
         let tonightsAttendees = ['Alpha', 'Alvin', 'Ziedah', 'Sharon'];
         const currentUser = 'Alpha';
 
-
         const isUserInAttendance = tonightsAttendees.includes(currentUser);
 
         console.log(isUserInAttendance);
@@ -75,15 +74,22 @@
             // examples of assigning a variable to some other variable
             let vehicle = smallCar;
 
-            // send a variable value into the function. smallCar gets reassigned to vehicle in the function.
-            // expect a 9 for smallCar when passed through the function.
-            let smallCarRating = getEfficencyRating(smallCar);
+            // to visualize the data, we log it out
+            console.log({vehicles});
 
-            let smallTruckRating = getEfficencyRating(smallTruck);
+            // forEach takes a function as its paramenter
+            // for each item in vehicles the function will execute for the vehicle
+            // TAKES FOREVER TO UNDERSTAND THIS!!!
+            vehicles.forEach(function(vehicle){
+                let result = getEfficencyRating(vehicle);
+                console.log({result})
+            });
 
-            let bigTruckRating = getEfficencyRating(bigTruck);
-
-            console.log({smallCarRating}, {smallTruckRating}, {bigTruckRating});
+            // alternative looping method -- this is an older method prior to 2015
+            for (let index = 0; index < vehicles.length; index = index + 1) {
+                console.log('array index:' + index);
+                console.log(vehicles[index]);
+            }
 
     </script>
 
