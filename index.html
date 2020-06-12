@@ -14,9 +14,6 @@
 
         console.log(isUserInAttendance);
         
-        // initialize an empty Array (we use brackets)
-        let cars = [];
-
         // curly braces is how we define the PROPERTIES of OBJECTS
         // Objects have properties: smallCar is the Object
         let smallCar = {
@@ -25,26 +22,28 @@
             fuelType: 'diesel'
         };
 
-        let mediumCar = {
-            engineSize: 6, //cylinders
+        let smallTruck = {
+            engineSize: 6, 
             displacement: 2,
-            fuelType: 'diesel'
+            fuelType: 'regular'
         };
+
+        let bigTruck = {
+            engineSize: 8,
+            displacement: 4,
+            fuelType: 'regular'
+        };
+
+        // initialize empty Array
+        let vehicles = [];
+        vehicles.push(smallCar);
+        vehicles.push(smallTruck);
+        vehicles.push(bigTruck);
 
         // we are going to be passing an object into the function vehicle only exhists in the function
         // variable rating only exhists in the function too
         function getEfficencyRating (vehicle) {
             let rating = 0;
-
-            // whatever goes into this if statement will be either true or false; predicate is what we put in the ()
-            // we reference vehicle because that's the variable of this function; we will pass smallCar through this.
-            if (vehicle.engineSize < 5) {
-                rating = 8;
-            }
-
-            if (vehicle.engineSize >= 5 && vehicle.engineSize < 7) {
-                rating = 6;
-            }
 
             //writing a switch statement to simplify engineSize 'if' statements above.
             switch (vehicle.engineSize) {
@@ -61,10 +60,9 @@
                 case 7:
                 case 8:
                     rating = 4;
-
-                default:
-                    rating = 2;
                     break
+                default:
+                    rating = 0;
             }
 
             if (vehicle.fuelType == 'diesel') {
@@ -74,18 +72,18 @@
 
             return rating;
          }
-
+            // examples of assigning a variable to some other variable
             let vehicle = smallCar;
 
             // send a variable value into the function. smallCar gets reassigned to vehicle in the function.
             // expect a 9 for smallCar when passed through the function.
             let smallCarRating = getEfficencyRating(smallCar);
 
-            console.log( smallCarRating );
+            let smallTruckRating = getEfficencyRating(smallTruck);
 
-            let mediumCarRating = getEfficencyRating(mediumCar);
+            let bigTruckRating = getEfficencyRating(bigTruck);
 
-            console.log( mediumCarRating );
+            console.log({smallCarRating}, {smallTruckRating}, {bigTruckRating});
 
     </script>
 
