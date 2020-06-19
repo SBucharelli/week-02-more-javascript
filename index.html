@@ -9,10 +9,87 @@
         let tonightsAttendees = ['Alpha', 'Alvin', 'Ziedah', 'Sharon'];
         const currentUser = 'Alpha';
 
-
         const isUserInAttendance = tonightsAttendees.includes(currentUser);
 
         console.log(isUserInAttendance);
+        
+        // curly braces is how we define the PROPERTIES of OBJECTS
+        // Objects have properties: smallCar is the Object
+        let smallCar = {
+            engineSize: 4, //cylinder
+            displacement: 2,
+            fuelType: 'diesel'
+        };
+
+        let smallTruck = {
+            engineSize: 6, 
+            displacement: 2,
+            fuelType: 'regular'
+        };
+
+        let bigTruck = {
+            engineSize: 8,
+            displacement: 4,
+            fuelType: 'regular'
+        };
+
+        // initialize empty Array
+        let vehicles = [];
+        vehicles.push(smallCar);
+        vehicles.push(smallTruck);
+        vehicles.push(bigTruck);
+
+        // we are going to be passing an object into the function vehicle only exhists in the function
+        // variable rating only exhists in the function too
+        function getEfficencyRating (vehicle) {
+            let rating = 0;
+
+            //writing a switch statement to simplify engineSize 'if' statements above.
+            switch (vehicle.engineSize) {
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                    rating = 8;
+                    break
+                case 5:
+                case 6:
+                    rating = 6;
+                    break
+                case 7:
+                case 8:
+                    rating = 4;
+                    break
+                default:
+                    rating = 0;
+            }
+
+            if (vehicle.fuelType == 'diesel') {
+                // how to increment += ++
+                rating = rating + 1; //we are reassigning rating to be whatever the rating currently is + 1
+            }
+
+            return rating;
+         }
+            // examples of assigning a variable to some other variable
+            let vehicle = smallCar;
+
+            // to visualize the data, we log it out
+            console.log({vehicles});
+
+            // forEach takes a function as its paramenter
+            // for each item in vehicles the function will execute for the vehicle
+            // TAKES FOREVER TO UNDERSTAND THIS!!!
+            vehicles.forEach(function(vehicle){
+                let result = getEfficencyRating(vehicle);
+                console.log({result})
+            });
+
+            // alternative looping method -- this is an older method prior to 2015
+            for (let index = 0; index < vehicles.length; index = index + 1) {
+                console.log('array index:' + index);
+                console.log(vehicles[index]);
+            }
 
     </script>
 
